@@ -17,7 +17,7 @@ def home_page():
     user = users.get_current_user()
 
     if user:
-        if user in allowed_users:
+        if user.user_id in allowed_users:
             return "Hello " + user.nickname() + " bikeR is GO! (" + user.user_id() + ")"
         else:
             return redirect('/register')
