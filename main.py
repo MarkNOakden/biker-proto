@@ -1,6 +1,7 @@
 from flask import Flask, redirect, request
 
 from google.appengine.api import users
+from allowed_users import allowed_users
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -23,6 +24,10 @@ def home_page():
 @app.route('/config')
 def config_page():
     return "config page"
+
+@app.route('/register')
+def registration_page():
+    return "BikeR is not yet open for registration"
 
 @app.errorhandler(404)
 def page_not_found(e):
