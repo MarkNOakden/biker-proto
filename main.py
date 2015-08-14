@@ -20,7 +20,12 @@ def home_page():
         if user.user_id in allowed_users:
             return "Hello " + user.nickname() + " bikeR is GO! (" + user.user_id() + ")"
         else:
-            return redirect('/register')
+            str = ""
+            for i in allowed_users:
+                str += "Compared (" + user.user_id + ") to (" + i + ")"
+                str += " got " + (user.user_id == i) + "\n"
+            return str
+            #return redirect('/register')
     else:
         return redirect(users.create_login_url(request.url))
 
